@@ -7,13 +7,18 @@ import {
   StatusBar,
 } from 'react-native';
 import React from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-export default function Login({ navigation, route }) {
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+export default function Login({navigation, route}) {
   const [mobile, setMobile] = React.useState('');
+  console.log(mobile);
   return (
     <View className=" bg-primary/20 flex-1 justify-evenly items-center">
       <SafeAreaView className="w-full h-full justify-evenly space-y-8 mt-8 items-center">
-        <StatusBar backgroundColor={"#29B67501"} barStyle={"dark-content"} translucent />
+        <StatusBar
+          backgroundColor={'#29B67501'}
+          barStyle={'dark-content'}
+          translucent
+        />
 
         <View className="flex-row justify-evenly items-center w-full">
           <View className="w-[25%] h-[1px] bg-black" />
@@ -46,7 +51,7 @@ export default function Login({ navigation, route }) {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Verify', {
-                  mobile_number: mobile,
+                  phone_number: route?.params?.mobile,
                 });
               }}
               className="bg-black w-[88%] h-[50px] shadow-lg rounded-md justify-center items-center">
@@ -56,8 +61,8 @@ export default function Login({ navigation, route }) {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Register', {
-                  user_type: route?.params?.user_type,
+                navigation.navigate('Verify', {
+                  phone_number: mobile,
                 });
               }}>
               <Text className="text-base font-bold font-suse  text-black">

@@ -7,18 +7,22 @@ import {
   StatusBar,
 } from 'react-native';
 import React from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-export default function Register({ navigation, route }) {
+export default function Register({navigation, route}) {
   const [data, setData] = React.useState({
-    full_name: '',
-    mobile_number: '',
+    name: '',
+    phone_number: '',
     user_type: route?.params?.user_type,
   });
   return (
     <View className=" bg-primary/20 flex-1 justify-evenly items-center">
       <SafeAreaView className="w-full h-full justify-evenly space-y-8 mt-8 items-center">
-        <StatusBar backgroundColor={"#29B67501"} barStyle={"dark-content"} translucent />
+        <StatusBar
+          backgroundColor={'#29B67501'}
+          barStyle={'dark-content'}
+          translucent
+        />
 
         <View className="flex-row justify-evenly items-center w-full">
           <View className="w-[25%] h-[1px] bg-black" />
@@ -44,8 +48,8 @@ export default function Register({ navigation, route }) {
                 keyboardType="ascii-capable"
                 placeholder="Jhon Doe"
                 className="border-b-2 font-suse h-[50px] text-xl border-gray-800"
-                value={data.full_name}
-                onChangeText={text => setData({ ...data, full_name: text })}
+                value={data.name}
+                onChangeText={text => setData({...data, name: text})}
               />
             </View>
             <View className="w-[92%] self-end">
@@ -57,8 +61,8 @@ export default function Register({ navigation, route }) {
                 maxLength={10}
                 placeholder="9123456789"
                 className="border-b-2 h-[50px] tracking-widest font-suse text-xl border-gray-800"
-                value={data.mobile_number}
-                onChangeText={text => setData({ ...data, mobile_number: text })}
+                value={data.phone_number}
+                onChangeText={text => setData({...data, phone_number: text})}
               />
             </View>
             <TouchableOpacity className="bg-black w-[88%] h-[50px] shadow-lg rounded-md justify-center items-center">

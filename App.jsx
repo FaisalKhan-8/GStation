@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import './global.css';
 import {Provider} from 'react-redux';
 import {store} from './Store';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
@@ -9,24 +10,24 @@ export default function App() {
   useEffect(() => {
     const requestPermissions = async () => {
       try {
-        const statuses = await requestMultiple(
-          Platform.OS === 'ios'
-            ? [
-                PERMISSIONS.IOS.CAMERA,
-                PERMISSIONS.IOS.PHOTO_LIBRARY,
-                PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
-                PERMISSIONS.IOS.LOCATION_ALWAYS,
-              ]
-            : [
-                PERMISSIONS.ANDROID.CAMERA,
-                PERMISSIONS.ANDROID.ACCESS_MEDIA_LOCATION,
-                PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-                PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION,
-              ],
-        );
-
-        // Handle permission statuses here if needed
-        console.log(statuses);
+        setTimeout(async () => {
+          const statuses = await requestMultiple(
+            Platform.OS === 'ios'
+              ? [
+                  PERMISSIONS.IOS.CAMERA,
+                  PERMISSIONS.IOS.PHOTO_LIBRARY,
+                  PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+                  PERMISSIONS.IOS.LOCATION_ALWAYS,
+                ]
+              : [
+                  PERMISSIONS.ANDROID.CAMERA,
+                  PERMISSIONS.ANDROID.ACCESS_MEDIA_LOCATION,
+                  PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+                  PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION,
+                ],
+          );
+          console.log(statuses);
+        }, 1000); // 1-second delay
       } catch (error) {
         console.error('Permission request error:', error);
       }
