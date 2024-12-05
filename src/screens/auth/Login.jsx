@@ -51,7 +51,7 @@ export default function Login({navigation, route}) {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Verify', {
-                  phone_number: route?.params?.mobile,
+                  phone_number: mobile,
                 });
               }}
               className="bg-black w-[88%] h-[50px] shadow-lg rounded-md justify-center items-center">
@@ -59,12 +59,7 @@ export default function Login({navigation, route}) {
                 Send OTP
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Verify', {
-                  phone_number: mobile,
-                });
-              }}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
               <Text className="text-base font-bold font-suse  text-black">
                 SIGN UP
               </Text>

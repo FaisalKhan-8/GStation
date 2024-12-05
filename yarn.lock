@@ -6156,10 +6156,10 @@ react-native-otp-entry@^1.7.3:
   resolved "https://registry.yarnpkg.com/react-native-otp-entry/-/react-native-otp-entry-1.7.3.tgz#16bc161eb9f30ab60840973fdaad629cb260e610"
   integrity sha512-BN/oEpNMfA0cnw9tB9Oq6PZZQztOiq1Ow/M+rAFd0Nll9aO1gwfCwymgIGI89/+63FkmMbv39LcgsfkZNAYzWw==
 
-react-native-permissions@^5.1.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-5.2.0.tgz#2394a584e90c5aa63d121bd70deee086272cf377"
-  integrity sha512-ohLjRJbP4w4SV7awGvWoCHbNbif/N8lJWcjPl0BBQsTQAA/AVdXXY7rMYaHQStSXURl7S+51m2rina3OHE0rFw==
+react-native-permissions@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-5.2.1.tgz#b028b7bc60d813588d8d3f2b80f19d1f67ba907f"
+  integrity sha512-F8CaDVi+zYjl2pO4Fwh5n5SCi5s0TvvRzQnczb8nwkzHJTv6HqlO6Sj1ZmqrAeuCN06b5Ysu9BEWhK4qT4ekXg==
 
 react-native-reanimated@^3.16.2:
   version "3.16.2"

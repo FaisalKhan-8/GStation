@@ -9,13 +9,16 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import Clipboard from '@react-native-clipboard/clipboard';
 import {useDispatch} from 'react-redux';
 
-export default function Verify() {
+export default function Verify({route}) {
   const dispatch = useDispatch();
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef([]);
+
+  const {phone_number} = route.params;
+
+  console.log(phone_number);
 
   // Handle input change
   const handleInputChange = (value, index) => {
@@ -36,21 +39,6 @@ export default function Verify() {
     }
   };
 
-  // Paste OTP from clipboard
-  const pasteOTP = async () => {
-    try {
-      const otpFromClipboard = await Clipboard.getString();
-      if (otpFromClipboard && otpFromClipboard.length === otp.length) {
-        setOtp(otpFromClipboard.split(''));
-        Alert.alert('Success', 'OTP pasted successfully!');
-      } else {
-        Alert.alert('Error', 'Invalid OTP in clipboard!');
-      }
-    } catch (error) {
-      Alert.alert('Error', 'Failed to paste OTP. Please try again.');
-    }
-  };
-
   // Handle OTP verification
   const verifyOtp = () => {
     const enteredOtp = otp.join('');
@@ -60,6 +48,10 @@ export default function Verify() {
       dispatch({
         type: 'SET_ACCESS',
         payload: 'Access Token Dummy',
+      });
+      dispatch({
+        phone_number,
+        enteredOtp,
       });
       Alert.alert('Success', 'OTP Verified!');
     } else {
@@ -116,12 +108,6 @@ export default function Verify() {
         <View className="w-[88%] self-center space-y-4">
           <TouchableOpacity onPress={verifyOtp} style={styles.button}>
             <Text style={styles.buttonText}>Verify OTP</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={pasteOTP}
-            style={[styles.button, {backgroundColor: '#d3d3d3'}]}>
-            <Text style={[styles.buttonText, {color: '#000'}]}>Paste OTP</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

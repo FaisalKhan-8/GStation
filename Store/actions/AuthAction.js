@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosIns, {baseURL} from '../../src/Helper/Helper';
+import axiosIns, {baseURL} from '../../src/helper/Helper';
 import Toast from 'react-native-toast-message';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -38,7 +38,7 @@ export const UserRegister = (name, number, setLoading, navigation) => {
       });
       setTimeout(() => {
         navigation.navigate('Login', {
-          number: number,
+          phone_number: number,
         });
         setLoading(false);
       }, 2000);
@@ -56,7 +56,7 @@ export const UserRegister = (name, number, setLoading, navigation) => {
   };
 };
 
-export const getOtp = (number, setLoading, navigation) => {
+export const getOtp = (number, otp, setLoading, navigation) => {
   return async dispatch => {
     setLoading(true);
     try {
@@ -72,8 +72,8 @@ export const getOtp = (number, setLoading, navigation) => {
         bottomOffset: 40,
       });
       setTimeout(() => {
-        navigation.navigate('Otp', {
-          number: number,
+        navigation.navigate('Verify', {
+          phone_number: number,
         });
         setLoading(false);
       }, 2000);
